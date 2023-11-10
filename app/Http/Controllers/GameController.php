@@ -51,8 +51,6 @@ class GameController extends Controller
         $guess = $request->input('guess');
         $correct = ($guess === 'higher' && $nextCardValue > $currentCardValue) || ($guess === 'lower' && $nextCardValue < $currentCardValue);
 
-        dd($cards, $current_index, $score, $lives, $nextCard, $currentCard, $currentCardValue, $nextCardValue, $guess, $correct);
-
         if ($correct) {
             $score++;
         } else {
