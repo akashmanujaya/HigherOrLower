@@ -19,8 +19,8 @@ To run this project locally, follow these instructions.
 1. **Clone the Repository**
 
    ```sh
-   git clone https://your-repository-url.git
-   cd your-repository-directory
+   git clone https://github.com/akashmanujaya/HigherOrLower
+   cd HigherOrLower
    ```
 
 2. **Install PHP Dependencies**
@@ -79,11 +79,11 @@ To run this project locally, follow these instructions.
    php artisan serve
    ```
 
-   This will start the development server, making the application accessible via `http://localhost:8000` or another port if specified.
+   This will start the development server, making the application accessible via `http://127.0.0.1:8000` or another port if specified.
 
 9. **Register and Play**
 
-   Open your web browser and visit `http://localhost:8000/register` (or the respective URL if you have a different setup). Create an account to start playing the game.
+   Open your web browser and visit `http://127.0.0.1:8000/register` (or the respective URL if you have a different setup). Create an account to start playing the game.
 
 ## Game Logic
 
