@@ -12,27 +12,42 @@ To run this project locally, follow these instructions.
 - Composer
 - Laravel >= 8.x
 - MySQL or another compatible database system
+- Node.js and npm
 
 ### Setup
 
 1. **Clone the Repository**
 
    ```sh
-   git clone https://github.com/akashmanujaya/HigherOrLower.git
-   cd HigherOrLower
+   git clone https://your-repository-url.git
+   cd your-repository-directory
    ```
 
-2. **Install Dependencies**
+2. **Install PHP Dependencies**
 
    ```sh
    composer install
    ```
 
-3. **Create a Database**
+3. **Install JavaScript Dependencies**
+
+   ```sh
+   npm install
+   ```
+
+4. **Compile Assets**
+
+   Compile your CSS and JavaScript assets using Laravel Mix:
+
+   ```sh
+   npm run dev
+   ```
+
+5. **Create a Database**
 
    Create a new database in your preferred database management system.
 
-4. **Environment Configuration**
+6. **Environment Configuration**
 
    Copy the `.env.example` file to a new file named `.env`, and update your database credentials:
 
@@ -48,7 +63,7 @@ To run this project locally, follow these instructions.
    php artisan key:generate
    ```
 
-5. **Run Migrations**
+7. **Run Migrations**
 
    To create the necessary tables in your database, run:
 
@@ -56,7 +71,7 @@ To run this project locally, follow these instructions.
    php artisan migrate
    ```
 
-6. **Start the Application**
+8. **Start the Application**
 
    Use the following command to start the Laravel application:
 
@@ -66,7 +81,7 @@ To run this project locally, follow these instructions.
 
    This will start the development server, making the application accessible via `http://localhost:8000` or another port if specified.
 
-7. **Register and Play**
+9. **Register and Play**
 
    Open your web browser and visit `http://localhost:8000/register` (or the respective URL if you have a different setup). Create an account to start playing the game.
 
@@ -81,7 +96,7 @@ The game logic is handled in the `GameController`. Here's a brief overview:
 
 ## Behind the Scenes
 
-- **Frontend**: The game interface is built using Blade templates with Bootstrap for styling.
+- **Frontend**: The game interface is built using Blade templates with Bootstrap for styling. The assets are compiled using Laravel Mix, which requires Node.js and npm.
 - **Backend**: Laravel handles the API calls, shuffling logic, and session management.
 - **AJAX**: User interactions for guessing and shuffling trigger AJAX calls for a smooth experience without page reloads.
 
