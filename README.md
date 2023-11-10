@@ -37,7 +37,7 @@ To run this project locally, follow these instructions.
 
 4. **Compile Assets**
 
-   Compile your CSS and JavaScript assets using Laravel Mix:
+   Compile your CSS and JavaScript assets using Laravel Vite:
 
    ```sh
    npm run dev
@@ -83,7 +83,7 @@ To run this project locally, follow these instructions.
 
 9. **Register and Play**
 
-   Open your web browser and visit `http://127.0.0.1:8000/register` (or the respective URL if you have a different setup). Create an account to start playing the game.
+   Open your web browser and visit `http://127.0.0.1:8000/register`. Create an account to start playing the game.
 
 ## Game Logic
 
