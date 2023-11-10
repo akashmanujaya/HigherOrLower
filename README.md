@@ -1,66 +1,90 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Higher or Lower Game Project
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project is a web-based card game where a player guesses whether the next card in a shuffled deck will be higher or lower than the current one. The game continues until the player makes three incorrect guesses or achieves the maximum score of 3.
 
-## About Laravel
+## Getting Started
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+To run this project locally, follow these instructions.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Prerequisites
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP >= 7.3
+- Composer
+- Laravel >= 8.x
+- MySQL or another compatible database system
 
-## Learning Laravel
+### Setup
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. **Clone the Repository**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+   ```sh
+   git clone https://github.com/akashmanujaya/HigherOrLower.git
+   cd HigherOrLower
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. **Install Dependencies**
 
-## Laravel Sponsors
+   ```sh
+   composer install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. **Create a Database**
 
-### Premium Partners
+   Create a new database in your preferred database management system.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+4. **Environment Configuration**
 
-## Contributing
+   Copy the `.env.example` file to a new file named `.env`, and update your database credentials:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   ```plaintext
+   DB_DATABASE=your_database_name
+   DB_USERNAME=your_database_username
+   DB_PASSWORD=your_database_password
+   ```
 
-## Code of Conduct
+   Then, generate the application key:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+   ```sh
+   php artisan key:generate
+   ```
 
-## Security Vulnerabilities
+5. **Run Migrations**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+   To create the necessary tables in your database, run:
 
-## License
+   ```sh
+   php artisan migrate
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+6. **Start the Application**
+
+   Use the following command to start the Laravel application:
+
+   ```sh
+   php artisan serve
+   ```
+
+   This will start the development server, making the application accessible via `http://localhost:8000` or another port if specified.
+
+7. **Register and Play**
+
+   Open your web browser and visit `http://localhost:8000/register` (or the respective URL if you have a different setup). Create an account to start playing the game.
+
+## Game Logic
+
+The game logic is handled in the `GameController`. Here's a brief overview:
+
+- **Shuffle**: At the beginning of the game, a shuffled deck of cards is fetched from an API and stored in the session.
+- **Guess**: When a player makes a guess, the next card in the session-stored deck is compared to the current card.
+- **Scoring**: If the guess is correct, the player's score is incremented. If incorrect, a life is decremented.
+- **End Game**: The game ends if the player loses all three lives or reaches the maximum score of 3. The player can then shuffle the deck to start a new game.
+
+## Behind the Scenes
+
+- **Frontend**: The game interface is built using Blade templates with Bootstrap for styling.
+- **Backend**: Laravel handles the API calls, shuffling logic, and session management.
+- **AJAX**: User interactions for guessing and shuffling trigger AJAX calls for a smooth experience without page reloads.
+
+## Conclusion
+
+This simple yet engaging game is an excellent example of how you can integrate frontend technologies with Laravel to create an interactive web application. Enjoy the game!
