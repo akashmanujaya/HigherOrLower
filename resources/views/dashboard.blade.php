@@ -15,15 +15,15 @@
 
             <div class="card">
                 <div class="card_top_left">
-                    <p class="card_value">{{ $currentCard['value'] }}</p>
-                    <img src="{{ asset('assets/images/' . strtolower($currentCard['suit']) . '.png') }}" alt="{{ ucfirst($currentCard['suit']) }}" class="card-suit">
+                    <p class="card_value"></p>
+                    <img src="" alt="" class="card-suit">
                 </div>
                 <div class="card_suit d-flex justify-center">
-                    <img src="{{ asset('assets/images/' . strtolower($currentCard['suit']) . '.png') }}" alt="{{ ucfirst($currentCard['suit']) }}" class="card-suit">
+                    <img src="" alt="" class="card-suit">
                 </div>
                 <div class="card_bottom_right mb-0">
-                    <p class="card_value">{{ $currentCard['value'] }}</p>
-                    <img src="{{ asset('assets/images/' . strtolower($currentCard['suit']) . '.png') }}" alt="{{ ucfirst($currentCard['suit']) }}" class="card-suit">
+                    <p class="card_value"></p>
+                    <img src="" alt="" class="card-suit">
                 </div>
 
             </div>

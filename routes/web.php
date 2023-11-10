@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', [GameController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route for the initial shuffle when the game starts
+Route::get('/game/shuffle', [GameController::class, 'shuffle'])->name('game.shuffle');
+
+// Route for handling the user's guess ('higher' or 'lower')
+Route::post('/game/next-card', [GameController::class, 'nextCard'])->name('game.nextCard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
