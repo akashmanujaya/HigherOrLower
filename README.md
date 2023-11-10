@@ -8,9 +8,9 @@ To run this project locally, follow these instructions.
 
 ### Prerequisites
 
-- PHP >= 7.3
+- PHP >= 8.0
 - Composer
-- Laravel >= 8.x
+- Laravel >= 9.x
 - MySQL or another compatible database system
 - Node.js and npm
 
