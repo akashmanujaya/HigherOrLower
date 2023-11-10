@@ -22,7 +22,8 @@ $(document).ready(function() {
 
     $('#higher_button, #lower_button').click(function() {
         if (!currentCard || lives === 0 || score >= maxScore) {
-            alert('Please shuffle the deck to start a new game.');
+            alert('Game Over. Starting a new game');
+            shuffleDeck();
             return;
         }
 
@@ -45,11 +46,13 @@ $(document).ready(function() {
     }
 
     function getNextCard(guess) {
+        let csrfToken = $('meta[name="csrf-token"]').attr('content');
+
         $.ajax({
             url: '/game/next-card',
             type: 'POST',
             data: {
-                _token: "{{ csrf_token() }}",
+                _token: csrfToken,
                 guess: guess,
                 currentCard: currentCard
             },

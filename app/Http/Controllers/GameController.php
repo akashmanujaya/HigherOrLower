@@ -29,5 +29,70 @@ class GameController extends Controller
         return response()->json(['card' => $cards->first()]);
     }
 
-    
+    // Method to handle the user's guess
+    public function nextCard(Request $request)
+    {
+        $cards = session('cards');
+        $current_index = session('current_index');
+        $score = session('score');
+        $lives = session('lives');
+
+        // Determine the next card and increment the index
+        $nextCard = $cards[++$current_index];
+        $currentCard = $cards[$current_index - 1];
+
+        
+        
+        session(['current_index' => $current_index]);
+
+        // Determine if the user's guess is correct
+        $currentCardValue = $this->getCardValue($currentCard['value']);
+        $nextCardValue = $this->getCardValue($nextCard['value']);
+        $guess = $request->input('guess');
+        $correct = ($guess === 'higher' && $nextCardValue > $currentCardValue) || ($guess === 'lower' && $nextCardValue < $currentCardValue);
+
+        dd($cards, $current_index, $score, $lives, $nextCard, $currentCard, $currentCardValue, $nextCardValue, $guess, $correct);
+
+        if ($correct) {
+            $score++;
+        } else {
+            $lives--;
+        }
+
+        // Update the session with the new score and lives
+        session(['score' => $score, 'lives' => $lives]);
+
+        // Transform the next card value
+        $nextCard['value'] = $this->transformCardValue($nextCard['value']);
+
+        return response()->json([
+            'correct' => $correct,
+            'nextCard' => $nextCard,
+            'score' => $score,
+            'lives' => $lives,
+        ]);
+    }
+
+    private function transformCardValue($value)
+    {
+        $specialValues = [
+            'ace' => 'A',
+            'king' => 'K',
+            'queen' => 'Q',
+            'jack' => 'J'
+        ];
+
+        return $specialValues[strtolower($value)] ?? $value;
+    }
+
+    private function getCardValue($value)
+    {
+        $values = [
+            "a" => 1, "2" => 2, "3" => 3, "4" => 4, "5" => 5, "6" => 6,
+            "7" => 7, "8" => 8, "9" => 9, "10" => 10, "j" => 11,
+            "q" => 12, "k" => 13
+        ];
+
+        return $values[strtolower($value)] ?? null;
+    }
 }

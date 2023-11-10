@@ -29,7 +29,7 @@
             </div>
             <p class="guess-prompt mb-3 text-white">Will the next card be higher or lower than the one above?</p>
             <div class="guess-buttons mb-3">
-                <button type="button" class="btn btn-success" id="higer_button">Higher</button>
+                <button type="button" class="btn btn-success" id="higher_button">Higher</button>
                 <button type="button" class="btn btn-danger" id="lower_button">Lower</button>
             </div>
             <button type="button" class="btn btn-primary" id="shuffle_deck">Shuffle Deck</button>
