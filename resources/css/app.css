@@ -5,3 +5,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+    max-width: 400px;
+    margin: 3rem auto;
+}
+
+.fw-bolder{
+    font-weight: bolder !important;
+    font-size: large;
+}
+
+.card {
+    font-size: 25px;
+    padding: 10px;
+    width: 240px;
+    border: 1px solid #5e5e5e;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 5px 5px 5px #888888;
+    -moz-box-shadow: 5px 5px 5px #888888;
+    box-shadow: 5px 5px 5px #888888;
+    margin-bottom: 10px;
+}
+
+.card > .card_top_left {
+    padding-right: 85%;
+}
+
+.card > .card_top_left > img, .card > .card_bottom_right > img {
+    width: 25px;
+}
+
+.card > .card_suit {
+    margin: 50px 0px;
+}
+
+.card > .card_bottom_right {
+    padding-left: 85%;
+    -moz-transform: scale(1, -1);
+    -webkit-transform: scale(1, -1);
+    -o-transform: scale(1, -1);
+    -ms-transform: scale(1, -1);
+    transform: scale(1, -1);
+}
